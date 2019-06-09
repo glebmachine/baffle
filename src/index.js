@@ -1,2 +1,3 @@
 import baffle from './baffle';
-module.exports = baffle;
+export default baffle;
+// module.exports = baffle;

@@ -13,6 +13,12 @@ export function mapString(str, fn) {
     return str.split('').map(fn).join('');
 }
 
+
+// Transform each character in a string.
+export function mapStringWithSpan(str, fn) {
+  return '<span class="letter">' + str.split('').map(fn).join('</span><span class="letter">') + '</span>';
+}
+
 // Get a random item from an array.
 export function sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)];

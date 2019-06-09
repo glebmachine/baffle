@@ -1,6 +1,6 @@
 import {
     getTruthyIndices,
-    mapString,
+    mapStringWithSpan,
     sample
 } from './utils';
 
@@ -38,7 +38,7 @@ class Obfuscator {
 
         // If no characters are provided, return the raw value.
         if (!characters.length) return this.value;
-        return mapString(this.value, (char, index) => {
+        return mapStringWithSpan(this.value, (char, index) => {
 
             // Skip any characters that are passed as exclude.
             if (exclude.indexOf(char) > -1) return char;
@@ -95,7 +95,7 @@ class ObfuscatorElement extends Obfuscator {
     }
 
     write(chars, exclude) {
-        this.element.textContent = this.render(chars, exclude);
+        this.element.innerHTML = this.render(chars, exclude);
         return this;
     }
 
